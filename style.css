@@ -1,8 +1,13 @@
+:root {
+    --progress: 20%;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
+
 .checklist-container {
     width: 100%;
     max-width: 1000px;
@@ -15,35 +20,63 @@ body {
     align-items: center;
     justify-content: space-between;
 }
+
 .checklist-info {
     display: flex;
     align-items: center;
 }
+
 .checklist-info > div {
     margin-right: 20px;
 }
+
 .circle {
+    position: relative;
     width: 50px;
     height: 50px;
-    background-color: #418ED3;
     border-radius: 50%;
+    background: conic-gradient(
+        #ffffff var(--progress), 
+        transparent var(--progress) 100%
+    );
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
-    font-weight: bold;
 }
+
+.circle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    background-color: #4A90E2;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.circle-text {
+    position: relative;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+
 .checklist-details {
     display: flex;
     flex-direction: column;
 }
+
 .checklist-details span {
     font-size: 14px;
 }
+
 .checklist-details span:first-child {
     font-size: 18px;
     font-weight: bold;
 }
+
 .button {
     background-color: white;
     color: #4A90E2;
